@@ -73,6 +73,33 @@ public class RadioTest {
     }
 
     @Test
+    void setVolume() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(10); //число в рабочем диапозоне от 0 до 100
+        int expected = 10;
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void setVolumeAboveMax() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(101); //число больше 100
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void setVolumeBelowMin() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(-1); //число меньше 0
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     void increaseVolume() {
         Radio radio = new Radio();
         radio.setCurrentVolume(10); //число в рабочем диапозоне от 0 до 99
