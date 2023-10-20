@@ -21,9 +21,9 @@ public class Radio {
     }
 
     public void setCurrentNumberOfRadioStation(int numRadioStation) {
-        if (numRadioStation >= minRadioStation && numRadioStation <= maxRadioStation) {
-            this.currentNumberOfRadioStation = numRadioStation;
-        }
+        if (numRadioStation < minRadioStation || numRadioStation > maxRadioStation) {
+            return;
+        } this.currentNumberOfRadioStation = numRadioStation;
     }
 
     public void nextRadioStation() {
