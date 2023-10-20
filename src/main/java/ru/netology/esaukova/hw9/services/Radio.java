@@ -15,7 +15,6 @@ public class Radio {
     }
 
     public Radio() {
-        this.numRadioStation = numRadioStation;
     }
 
     public int getCurrentNumberOfRadioStation() {
