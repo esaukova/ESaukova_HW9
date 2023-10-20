@@ -11,7 +11,6 @@ public class Radio {
     private int numRadioStation = 10;
 
     public Radio(int newNumRadioStation) {
-        this.numRadioStation = newNumRadioStation;
         this.maxRadioStation = newNumRadioStation - 1;
     }
 
