@@ -1,21 +1,29 @@
 package ru.netology.esaukova.hw9.services;
 
 public class Radio {
-    private int currentNumberOfRadioStation;
-    private int currentVolume;
+
     private int minRadioStation = 0;
     private int maxRadioStation = 9;
+    private int currentNumberOfRadioStation = minRadioStation;
     private int minVolume = 0;
     private int maxVolume = 100;
+    private int currentVolume = minVolume;
 
-    public int getCurrentNumberOfRadioStation() {
-        return currentNumberOfRadioStation; //
+    public Radio(int numRadioStation) {
+        this.maxRadioStation = numRadioStation - 1;
     }
 
-    public void setCurrentNumberOfRadioStation(int newNumberOfRadioStation) {
-        if (newNumberOfRadioStation >= minRadioStation && newNumberOfRadioStation <= maxRadioStation) {
-            currentNumberOfRadioStation = newNumberOfRadioStation;
-        }
+    public Radio() {
+    }
+
+    public int getCurrentNumberOfRadioStation() {
+        return currentNumberOfRadioStation;
+    }
+
+    public void setCurrentNumberOfRadioStation(int numRadioStation) {
+        if (numRadioStation < minRadioStation || numRadioStation > maxRadioStation) {
+            return;
+        } this.currentNumberOfRadioStation = numRadioStation;
     }
 
     public void nextRadioStation() {
@@ -40,9 +48,10 @@ public class Radio {
 
     public void setCurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume >= minVolume && newCurrentVolume <= maxVolume) {
-            currentVolume = newCurrentVolume;
+            this.currentVolume = newCurrentVolume;
         }
     }
+
 
     public void increaseVolume() {
         if (currentVolume < maxVolume) {
